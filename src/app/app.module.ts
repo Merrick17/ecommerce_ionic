@@ -21,12 +21,14 @@ import { PlatsPage } from '../pages/plats/plats';
 import { CrudProvider } from '../providers/crud/crud';
 import { UpdateorderPage } from '../pages/updateorder/updateorder';
 import { ContactPage} from '../pages/contact/contact'; 
+import { DetailCommandePage } from '../pages/detail-commande/detail-commande';
 
 @NgModule({
   declarations: [
    
     MyApp,
     HomePage,
+    
     RegisterPage,TabsPage,SandwishPage,PizzaPage,SodaPage,PlatsPage,UpdateorderPage
   ],
   imports: [

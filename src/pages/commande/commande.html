@@ -11,7 +11,7 @@
   
 
 <ion-content padding>
-  <ion-card *ngFor="let pan of commande">
+  <ion-card *ngFor="let pan of commande" (click)="ShowModal(pan.id_commande)">
    
     
       <ion-toolbar color="secondary">

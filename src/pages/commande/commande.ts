@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  NavController, NavParams, IonicApp, IonicPage, App } from 'ionic-angular';
+import {  NavController, NavParams, IonicApp, IonicPage, App, ModalController } from 'ionic-angular';
 import { HttpClient } from '../../../node_modules/@angular/common/http';
 import { RestProvider } from '../../providers/rest/rest';
 import { CrudProvider } from '../../providers/crud/crud';
@@ -17,7 +17,7 @@ user:string;
 items:any; 
   produits:Array<any>=[]; 
   commande:Array<commande>=[]; 
-  constructor(private app:App, public navCtrl: NavController, public navParams: NavParams,private http:HttpClient,private us:RestProvider,private cr:CrudProvider) {
+  constructor(private app:App, private modalCtrl:ModalController ,public navCtrl: NavController, public navParams: NavParams,private http:HttpClient,private us:RestProvider,private cr:CrudProvider) {
     this.user=this.us.getEmail(); 
     
    
@@ -91,5 +91,12 @@ ionViewWillEnter()
  { 
   this.commande=null ; 
   this.produits=null ; 
+ }
+
+
+ ShowModal( id_cmd:any)
+ { 
+   let modal = this.modalCtrl.create('DetailCommandePage',{commande:id_cmd}); 
+   modal.present(); 
  }
 }
