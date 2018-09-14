@@ -1,0 +1,17 @@
+
+<ion-header>
+    <ion-navbar color="dark">
+        
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor="let prom of promotions">
+    <img  src="assets/imgs/garlic-naan.jpg"/>
+    <div class="card-title">{{prom.promotion}}</div>
+    <div class="card-subtitle">{{prom.date}}</div>
+  </ion-card>
+
+
+</ion-content>

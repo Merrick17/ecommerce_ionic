@@ -1,0 +1,60 @@
+
+
+<ion-content padding class="home">
+
+
+  <div >
+    <div class="login-content">
+  
+      <!-- Logo -->
+      <div padding-horizontal text-center class="animated fadeInDown">
+      
+     <img src="assets/imgs/icon.png" style="width: 150px;height: 150px">
+      </div>
+    
+      <!-- Login form -->
+      <div class="list-form" >
+      <ion-item>
+        <ion-label floating>
+        <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+        Email
+        </ion-label>
+        <ion-input type="email" [(ngModel)]="mail"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label floating>
+        <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+        Mot de passe
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="psw"></ion-input>
+      </ion-item>
+    </div>
+    
+      
+    
+      <div>
+          <p text-right ion-text color="primary" tappable (click)="Forgot()"><strong>Mot de passe Oublier ?</strong></p>
+      <button ion-button icon-start block color="dark" tappable (click)="login()">
+        <ion-icon name="log-in"></ion-icon>
+        Connecter
+      </button>
+    
+       
+        
+      </div>
+    
+    
+      <!-- Other links -->
+      <div text-center margin-top>
+      <span ion-text color="secondary" tappable (click)="Register()">Nouveau ? <strong>Inscrivez Vous</strong></span>
+      </div>
+    
+    </div>
+  </div>
+
+  
+
+
+</ion-content>
+

@@ -1,0 +1,27 @@
+
+<ion-header>
+
+        <ion-navbar color="dark">
+            
+            <button ion-button icon-only outline color="light" (click)="Exit()"><ion-icon name="exit"></ion-icon></button>
+           
+        </ion-navbar>
+      
+      </ion-header>
+      
+
+<ion-content padding>
+     
+    <ion-list>
+        <ion-item (click)="Sandwish()">
+            <img src="assets/imgs/sandwish.jpg">
+        </ion-item>
+      
+        <ion-item (click)="Boisson()">
+            <img src="assets/imgs/boisson.jpg">
+        </ion-item>
+        <ion-item (click)="Pizza()">
+            <img src="assets/imgs/promotions.jpg">
+        </ion-item>
+    </ion-list>
+</ion-content>

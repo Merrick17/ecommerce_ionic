@@ -1,0 +1,91 @@
+<ion-content class="auth-page">
+  <div class="login-content">
+
+    <!-- Logo -->
+    <div padding text-center>
+      <div class="logo"></div>
+      <h2 ion-text class="text-primary">
+        <strong>Inscription</strong> 
+      </h2>
+    </div>
+
+    <!-- Login form -->
+   
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="person" item-start class="text-primary"></ion-icon>
+          Nom
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="nom"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="person" item-start class="text-primary"></ion-icon>
+         Prenom
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="prenom"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+          Email
+        </ion-label>
+        <ion-input type="email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+          Mot de passe
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="mdp"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+          Adresse
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="adr"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+          Tel
+        </ion-label>
+        <ion-input type="number" [(ngModel)]="tel"></ion-input>
+      </ion-item>
+      
+      <ion-item-group>
+
+        <ion-item>
+          <ion-label>Zone</ion-label>
+          <ion-select [(ngModel)]="zone" cancelText="Annuler" okText="OK">
+            <ion-option value="1" selected="true">Sousse</ion-option>
+            <ion-option value="2">M'saken</ion-option>
+            <ion-option value="3">Sahloul</ion-option>
+            <ion-option value="4">Khezama</ion-option>
+            
+           
+          </ion-select>
+        </ion-item>
+        </ion-item-group>
+       
+       
+      
+  
+
+    <div margin-top>
+      <button ion-button block color="dark" tappable (click)="verif()">
+        S'inscrire
+      </button>
+
+     
+    </div>
+
+    <!-- Other links -->
+    <div text-center margin-top>
+      <span ion-text color="primary" tappable (click)="login()">J'ai déja un compte </span>
+    </div>
+
+  </div>
+</ion-content>

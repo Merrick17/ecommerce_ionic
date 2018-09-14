@@ -1,0 +1,52 @@
+
+<ion-header>
+    <ion-navbar color="dark">
+        
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<div style="align-content: center">
+    <img src="/assets/imgs/6.jpg" class="image">
+</div>
+<br>
+<br>
+<ion-item-group>
+        <ion-item-divider color="dark" class="bold">Choix de Type</ion-item-divider>
+        <ion-item>
+          <ion-label>Type</ion-label>
+          <ion-select [(ngModel)]="commande" cancelText="Annuler" okText="OK">
+            <ion-option *ngFor="let prod of produits"  value="{{prod}}">{{prod}}</ion-option>-->
+           
+          </ion-select>
+        </ion-item>
+        
+       
+      </ion-item-group>
+      <!-- App settings-->
+      <ion-item-group>
+
+          <ion-item-divider color="secondary" class="bold">Ingredients</ion-item-divider>
+          <ion-item *ngFor="let ingrd of options">
+            <ion-label>{{ingrd}}</ion-label>
+           <!-- <ion-toggle (ionChange)="Vsuppelement_mayonaise()" [checked]="Mayonaise"></ion-toggle>-->
+        <ion-checkbox  (ionChange)="notifyOp(ingrd)" ></ion-checkbox>
+        </ion-item>
+        <ion-item-divider color="secondary" class="bold">Options</ion-item-divider>
+        <ion-item *ngFor="let ingrd of ingredient">
+          <ion-label>{{ingrd}}</ion-label>
+         <!-- <ion-toggle (ionChange)="Vsuppelement_mayonaise()" [checked]="Mayonaise"></ion-toggle>-->
+         <ion-checkbox (ionChange)="notify(ingrd)" ></ion-checkbox>
+        
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Quantité</ion-label>
+            <ion-input type="number" [(ngModel)]="qte" ></ion-input>
+        </ion-item>
+      </ion-item-group>  
+
+  <!--sign out button-->
+  <button ion-button color="primary" full tappable (click)="AddCart()">Ajout Au Panier</button>
+
+</ion-content>
