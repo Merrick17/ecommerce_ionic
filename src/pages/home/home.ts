@@ -63,46 +63,14 @@ alert.present();
 
 login()
 { 
- this.http.get("http://tandoorifood.tn/resto/login.php?mail="+this.mail+"&mdp="+this.psw).subscribe( 
-   res=>{
-     this.data=res ;
-     console.log(this.data.result); 
-     if(this.data.result=="1" && this.data.etat=="Activer")
-     { this.us.setEmail(this.mail); 
-      this.getName(); 
-      console.log(this.us.getEmail()); 
-       this.navCtrl.setRoot(TabsPage); 
-       console.log(this.data.result); 
-     }else
-     if (this.data.result=="1" && this.data.etat!="Activer"){ 
-      let alert = this.alertCtrl.create({ 
-        title:'erreur', 
-        subTitle:'Votre compte a été bloquer ou pas encore confirmer ',
-        buttons:[{ 
-          text:'ok', 
-          handler:()=>{ 
-            console.log('ok '); 
-          }
-        }]
-      }); 
-      alert.present(); 
-     } else { 
-       let toast =this.toast.create({
-         position:'bottm',
-         duration:3000, 
-         message:'adresse ou mot de passe incorrect !'
-
-       }); 
-       toast.present() ; 
-     }
-     
-   }
- )
-  
-  //
-
-
- 
+this.http.post('http://localhost:3000/users/login',{
+  'email': this.mail ,
+  'password':this.psw
+}).subscribe(data=>{
+  let result:any ; 
+  console.log(result); 
+  this.navCtrl.setRoot(TabsPage); 
+})
 }
 getName()
 { 

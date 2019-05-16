@@ -6,22 +6,26 @@
             <button ion-button icon-only outline color="light" (click)="Exit()"><ion-icon name="exit"></ion-icon></button>
            
         </ion-navbar>
-      
+        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>  
       </ion-header>
       
 
 <ion-content padding>
-     
-    <ion-list>
-        <ion-item (click)="Sandwish()">
-            <img src="assets/imgs/sandwish.jpg">
-        </ion-item>
-      
-        <ion-item (click)="Boisson()">
-            <img src="assets/imgs/boisson.jpg">
-        </ion-item>
-        <ion-item (click)="Pizza()">
-            <img src="assets/imgs/promotions.jpg">
-        </ion-item>
-    </ion-list>
+        <ion-grid class="grid-categories">
+                <ion-row *ngFor="let categorie of products; let i = index" >
+                  <ion-col *ngIf="i % 2 == 0"  (click)="showData(categorie.id)">
+                    <img [src]="categorie.url" />
+                    
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            
+              <ion-grid class="grid-categories">
+                <ion-row *ngFor="let categorie of products; let i = index" >
+                  <ion-col *ngIf="i % 2 != 0"  (click)="showData(categorie.id)">
+                    <img [src]="categorie.url" />
+                  </ion-col>
+                </ion-row>
+        </ion-grid>
+  
 </ion-content>

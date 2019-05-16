@@ -1,17 +1,35 @@
 
 <ion-header>
-    <ion-navbar color="dark">
-        
-    </ion-navbar>
+  <ion-navbar color="dark">
+      <ion-buttons end>
+          <button ion-button icon-only color="light" (click)="GoBack()">
+            <ion-icon name="close"></ion-icon>
+          </button>
+        </ion-buttons>
+  </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-  <ion-card *ngFor="let prom of promotions">
-    <img  src="assets/imgs/garlic-naan.jpg"/>
-    <div class="card-title">{{prom.promotion}}</div>
-    <div class="card-subtitle">{{prom.date}}</div>
-  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+          <h1 style="text-align:center"> {{product.title}}</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+          <img [src]="product.url" />
+      </ion-col>  
+    </ion-row>
 
-
+    <ion-row>
+      <br>
+      <h2>Prix: <span>1500.0 </span> </h2>
+      <br>
+      <h2>Quantité en Stock :  <span>0 </span> </h2>
+      <button ion-button color="danger" block large (click)="ajouter()">Ajouter Au Panier</button>
+    </ion-row>
+  </ion-grid>
+ 
 </ion-content>

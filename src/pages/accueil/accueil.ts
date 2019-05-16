@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import {  IonicPage,NavController, NavParams, App } from 'ionic-angular';
+import {  IonicPage,NavController, NavParams, App, ModalController } from 'ionic-angular';
 import { SandwishPage } from '../sandwish/sandwish';
 import { PizzaPage } from '../pizza/pizza';
 import { SodaPage } from '../soda/soda';
 import { PlatsPage } from '../plats/plats';
 import { HomePage } from '../home/home';
 import { RestProvider } from '../../providers/rest/rest';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * Generated class for the AccueilPage page.
@@ -21,7 +22,8 @@ import { RestProvider } from '../../providers/rest/rest';
 })
 export class AccueilPage {
 name:any ; 
-  constructor(private app:App,public navCtrl: NavController, public navParams: NavParams,private us:RestProvider) {
+products:any=[]; 
+  constructor(private app:App,public navCtrl: NavController, public navParams: NavParams,private us:RestProvider,private http:HttpClient, private modalCtrl:ModalController) {
    
   }
 Exit()
@@ -32,20 +34,35 @@ Exit()
     console.log('ionViewDidLoad AccueilPage');
    
   }
-Sandwish()
-{ 
-  this.navCtrl.push(SandwishPage);
+  ionViewWillEnter()
+  {
+    this.getProducts2() ; 
+  }
+getProducts()
+{
+  this.http.get('https://jsonplaceholder.typicode.com/photos').subscribe(data=>{
+
+  let result :any =data ; 
+  this.products=result ; 
+  console.log(result); 
+  });
 }
-Pizza()
-{ 
-  this.navCtrl.push(PizzaPage); 
+
+showData(id)
+{
+  let modalCtrl = this.modalCtrl.create(PizzaPage,{'id':id}); 
+  modalCtrl.present(); 
 }
-Boisson()
-{ 
-  this.navCtrl.push(SodaPage); 
-}
-Plats()
-{ 
-  this.navCtrl.push(PlatsPage); 
+
+getProducts2()
+{
+  this.http.get('http://localhost:3000/prod/',{headers:{
+    'x-access-token':'token'
+  }}).subscribe(data=>{
+
+  let result :any =data ; 
+  this.products=result ; 
+  console.log(result); 
+  });
 }
 }
